@@ -1,25 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
+// client/src/App.js
+import React from "react";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import FinanceApplicationList from "./components/FinanceApplicationList";
+import FinanceApplicationForm from "./components/FinanceApplicationForm";
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div>
+        <h1>Asset Finance Management</h1>
+        <Routes>
+          <Route path="/" element={<FinanceApplicationList />} />
+          <Route path="/create" element={<FinanceApplicationForm />} />
+        </Routes>
+      </div>
+    </Router>
   );
-}
+};
 
 export default App;
